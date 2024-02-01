@@ -8,137 +8,51 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: UserListPage(),
+      home: ButtonScreen(),
     );
   }
 }
 
-class UserListPage extends StatefulWidget {
-  @override
-  _UserListPageState createState() => _UserListPageState();
-}
-
-class _UserListPageState extends State<UserListPage> {
-  List<String> users = [];
-
-  void addUser() {
-    TextEditingController _controller = TextEditingController();
-
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('Enter User Name'),
-          content: TextField(
-            controller: _controller,
-            decoration: InputDecoration(labelText: 'Name'),
-          ),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text('Cancel'),
-            ),
-            TextButton(
-              onPressed: () {
-                String userName = _controller.text.trim();
-                if (userName.isNotEmpty) {
-                  setState(() {
-                    users.add(userName);
-                  });
-                  Navigator.of(context).pop();
-                } else {
-                  // Show an error message or handle the case when the name is empty.
-                  // For simplicity, we just close the dialog without adding the user.
-                  Navigator.of(context).pop();
-                }
-              },
-              child: Text('Add'),
-            ),
-          ],
-        );
-      },
-    );
-  }
-
-  void removeUser(int index) {
-    setState(() {
-      users.removeAt(index);
-    });
-  }
-
-  void changeUserName(int index) {
-    TextEditingController _controller = TextEditingController();
-
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('Change User Name'),
-          content: TextField(
-            controller: _controller,
-            decoration: InputDecoration(labelText: 'New Name'),
-          ),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text('Cancel'),
-            ),
-            TextButton(
-              onPressed: () {
-                setState(() {
-                  users[index] = _controller.text;
-                });
-                Navigator.of(context).pop();
-              },
-              child: Text('Save'),
-            ),
-          ],
-        );
-      },
-    );
-  }
-
+class ButtonScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Users'),
+        title: Text('View Video'),
         backgroundColor: Colors.purple,
       ),
-      body: ListView.builder(
-        itemCount: users.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-            title: Text(users[index]),
-            trailing: Row(
-              mainAxisSize: MainAxisSize.min,
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 IconButton(
-                  icon: Icon(Icons.edit),
+                  icon: Icon(Icons.fast_rewind),
                   onPressed: () {
-                    changeUserName(index);
+                    // Handle rewind button press
+                    print('Rewind pressed');
                   },
                 ),
                 IconButton(
-                  icon: Icon(Icons.delete),
+                  icon: Icon(Icons.pause),
                   onPressed: () {
-                    removeUser(index);
+                    // Handle pause button press
+                    print('Pause pressed');
+                  },
+                ),
+                IconButton(
+                  icon: Icon(Icons.fast_forward),
+                  onPressed: () {
+                    // Handle forward button press
+                    print('Forward pressed');
                   },
                 ),
               ],
             ),
-          );
-        },
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          addUser();
-        },
-        child: Icon(Icons.add),
+          ],
+        ),
       ),
     );
   }

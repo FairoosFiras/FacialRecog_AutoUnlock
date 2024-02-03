@@ -120,11 +120,15 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               TextButton(
                 child: Text('Forgot Password?'),
-                onPressed: () {},
+                onPressed: () {
+                  // Implement forgot password functionality
+                },
               ),
               TextButton(
                 child: Text('Sign Up'),
-                onPressed: () {},
+                onPressed: () {
+                  // Implement sign-up functionality
+                },
               ),
             ],
           ),

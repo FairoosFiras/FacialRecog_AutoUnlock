@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # capstone
+=======
+# login_page
+>>>>>>> demo
 
 A new Flutter project.
 

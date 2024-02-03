@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'home_page.dart'; // Path to your HomePage widget file
+=======
+import 'home_page.dart';
+>>>>>>> demo
 
 void main() {
   runApp(MyApp());
@@ -14,7 +18,14 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.purple,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+<<<<<<< HEAD
       home: LoginScreen(),
+=======
+      routes: {
+        '/': (context) => LoginScreen(),
+      },
+      initialRoute: '/',
+>>>>>>> demo
     );
   }
 }
@@ -120,11 +131,23 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               TextButton(
                 child: Text('Forgot Password?'),
+<<<<<<< HEAD
                 onPressed: () {},
               ),
               TextButton(
                 child: Text('Sign Up'),
                 onPressed: () {},
+=======
+                onPressed: () {
+                  //This is where I would put forgot password functionality
+                },
+              ),
+              TextButton(
+                child: Text('Sign Up'),
+                onPressed: () {
+                  // same as above but for signup
+                },
+>>>>>>> demo
               ),
             ],
           ),
@@ -133,3 +156,8 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
+<<<<<<< HEAD
+=======
+//had to add this comment to make it modified
+//had to add this comment to make it modified
+>>>>>>> demo

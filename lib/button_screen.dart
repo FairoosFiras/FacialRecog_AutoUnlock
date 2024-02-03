@@ -44,3 +44,7 @@ class ButtonScreen extends StatelessWidget {
     );
   }
 }
+<<<<<<< HEAD
+=======
+//had to add this comment to make it modified
+>>>>>>> demo

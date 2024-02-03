@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'home_page.dart'; // Path to your HomePage widget file
+import 'home_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,7 +14,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.purple,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: LoginScreen(),
+      routes: {
+        '/': (context) => LoginScreen(),
+      },
+      initialRoute: '/',
     );
   }
 }
@@ -121,13 +124,13 @@ class _LoginScreenState extends State<LoginScreen> {
               TextButton(
                 child: Text('Forgot Password?'),
                 onPressed: () {
-                  // Implement forgot password functionality
+                  //This is where I would put forgot password functionality
                 },
               ),
               TextButton(
                 child: Text('Sign Up'),
                 onPressed: () {
-                  // Implement sign-up functionality
+                  // same as above but for signup
                 },
               ),
             ],

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'history.dart';
 import 'settings.dart';
 import 'button_screen.dart';
+import 'users_page.dart';
 
 void main() => runApp(MaterialApp(home: Home()));
 
@@ -60,7 +61,13 @@ class Home extends StatelessWidget {
                 ]),
                 Column(children: [
                   IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => UserListPage()),
+                        );
+                      },
                       icon: Icon(Icons.person,
                           color: Colors.purple[200], size: 50.0)),
                   Text("Users")
